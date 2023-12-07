@@ -1,0 +1,14 @@
+before-script:
+  - python -V  # Print out python version for debugging
+
+# Create following jobs here
+# - lint
+# - test
+# - build
+# - publish
+
+example:
+  script:
+    - "echo 'Hello from pipeline!'"
+  before_script:
+    - ''
