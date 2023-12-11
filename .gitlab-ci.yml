@@ -38,9 +38,7 @@ publish:
   stage: publish
   services:
     - docker:dind
-  before_script:
-    - echo "Printing GCP_CREDENTIALS for debugging purposes:"
-    - head -n 10 "$GCP_CREDENTIALS"
-    - echo "$GCP_CREDENTIALS" | docker login -u _json_key --password-stdin europe-north1-docker.pkg.dev/css-markuslippo-2023/exercise-cicd
   script: 
+    - echo "$GCP_CREDENTIALS" > key.json 
+    - docker login -u _json_key --password-stdin europe-north1-docker.pkg.dev/css-markuslippo-2023/exercise-cicd < key.json
     - docker push europe-north1-docker.pkg.dev/css-markuslippo-2023/exercise-cicd/courses-api:v1
