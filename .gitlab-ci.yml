@@ -10,20 +10,20 @@ before_script:
 lint:
   image: python:3.10.8-alpine3.16
   stage: lint
-  script:
-    - pip3 install pylint
-    - pylint main.py
   before_script:
     - pip install -r requirements.txt
+    - pip install pylint
+  script:
+    - pylint main.py
 
 test:
   image: python:3.10.8-alpine3.16
   stage: test
-  script: 
-    - pip3 install pytest
-    - pytest
   before_script:
     - pip install -r requirements.txt
+    - pip install pytest
+  script: 
+    - pytest
 
 build: 
   image: docker:24
@@ -31,6 +31,8 @@ build:
   script:
     - docker build --network host -t europe-north1-docker.pkg.dev/css-markuslippo-2023/exercise-cicd/courses-api:v1 .
   before_script:
+    - docker version
+    - apk add --no-cache py3-pip
     - pip install -r requirements.txt
 
 publish:
