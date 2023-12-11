@@ -12,10 +12,12 @@ lint:
   stage: lint
   script:
     - pwd 
-    - ls
+    - ls   
+    - echo "Contents of the app directory:" 
+    - ls app/  
     - pip install -r requirements.txt
     - pip install pylint
-    - pylint /app/main.py
+    - pylint /app/main.py 
 
 test:
   image: python:3.10.8-alpine3.16
