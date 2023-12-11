@@ -15,11 +15,11 @@ lint:
     - ls   
     - echo "Contents of the app directory:" 
     - ls app/  
-    - echo "First few lines of /app/main.py:"
-    - head -n 10 /app/main.py 
+    - echo "First few lines of app/main.py:"
+    - head -n 10 app/main.py 
     - pip install -r requirements.txt
     - pip install pylint
-    - pylint /app/main.py 
+    - pylint app/main.py 
 
 test:
   image: python:3.10.8-alpine3.16
@@ -27,7 +27,7 @@ test:
   script: 
     - pip install -r requirements.txt
     - pip install pytest
-    - pytest /app/tests/test_main.py
+    - pytest app/tests/test_main.py
 
 build: 
   image: docker:24
