@@ -4,8 +4,8 @@ stages:
   - build
   - publish
 
-before_script:
-  - python -V  # Print out python version for debugging
+#before_script:
+#  - python -V  # Print out python version for debugging
 
 lint:
   image: python:3.10.8-alpine3.16
@@ -42,3 +42,5 @@ publish:
     - echo "$GCP_CREDENTIALS" > key.json 
     - docker login -u _json_key --password-stdin europe-north1-docker.pkg.dev/css-markuslippo-2023/exercise-cicd < key.json
     - docker push europe-north1-docker.pkg.dev/css-markuslippo-2023/exercise-cicd/courses-api:v1
+
+
