@@ -27,11 +27,9 @@ build:
   image: docker:24
   stage: build
   script:
-    - docker build --network host -t europe-north1-docker.pkg.dev/css-markuslippo-2023/exercise-cicd/courses-api:v1 .
+    - docker build --network host -t courses-api:v1 .
   before_script:
     - docker version
-    - apk add --no-cache py3-pip
-    - pip install -r requirements.txt
 
 publish:
   image: docker:24
