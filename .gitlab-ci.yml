@@ -40,6 +40,6 @@ publish:
     - docker:dind
   before_script:
     - echo $GCP_CREDENTIALS > gcp-key.json
-    - cat gcp-key.json | docker login -u _json_key --password-stdin europe-north1-docker.pkg.dev
+    - cat gcp-key.json | docker login -u _json_key --password-stdin europe-north1-docker.pkg.dev/css-markuslippo-2023/exercise-cicd
   script:
     - docker push europe-north1-docker.pkg.dev/css-markuslippo-2023/exercise-cicd/courses-api:v1
