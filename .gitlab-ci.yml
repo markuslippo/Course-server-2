@@ -37,8 +37,7 @@ publish:
   services:
     - docker:dind
   script: 
-    - echo "$GCP_CREDENTIALS" > key.json 
-    - docker login -u _json_key --password-stdin europe-north1-docker.pkg.dev/css-markuslippo-2023/exercise-cicd < key.json
+    - docker login -u _json_key --password-stdin europe-north1-docker.pkg.dev/css-markuslippo-2023/exercise-cicd < $GCP_CREDENTIALS
     - docker push europe-north1-docker.pkg.dev/css-markuslippo-2023/exercise-cicd/courses-api:v1
 
 
