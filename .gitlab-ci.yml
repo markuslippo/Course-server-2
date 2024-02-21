@@ -4,8 +4,6 @@ stages:
   - build
   - publish
 
-#before_script:
-#  - python -V  # Print out python version for debugging
 
 lint:
   image: python:3.10.8-alpine3.16
